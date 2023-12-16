@@ -1,0 +1,48 @@
+# Virtual environment
+venv/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python bytecode
+*.pyc
+
+# PyInstaller
+dist/
+build/
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Dependency management
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Editor configuration
+.editorconfig
+
+# Type checking cache
+.mypy_cache/
+
+# Pytest cache
+.pytest_cache/
+
+# Local database file (SQLite, etc.)
+db.sqlite3
+
+# Compiled UI files
+*.ui
+
+# Python package metadata
+*.egg-info/
+dist/
