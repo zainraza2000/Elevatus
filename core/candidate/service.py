@@ -25,6 +25,7 @@ class CandidateService:
         return await self.candidate_repository.delete(candidate_id)
     
     async def get_candidates_by_keyword(self,keyword):
+        # global keyword search
         query = {}
         if keyword:
             search_keys = [field for field in Candidate.__annotations__.keys() if field != 'uuid']
@@ -35,6 +36,7 @@ class CandidateService:
         return await self.candidate_repository.find(query)
     
     async def generate_report(self):
+        #generating report containing data for all candidates
         file_name = f'report_{datetime.now().timestamp()}'
         candidates = await self.candidate_repository.get_all()
         list_of_candidates = [model.model_dump() for model in candidates]

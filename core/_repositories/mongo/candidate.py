@@ -6,6 +6,7 @@ from pymongo import ReturnDocument
 from bson import ObjectId
 from core.candidate.dtos.request import CandidateUpdate
 
+#implementing repository actions for mongo db
 class CandidateMongoRepository(CandidateRepository):
     def __init__(self) -> None:
         super().__init__()

@@ -11,6 +11,8 @@ from core.health import health_router
 from core.candidate import sub_router as candidate_router
 from core.auth import sub_router as auth_router
 
+#including all routers in the module
+
 router = APIRouter()
 router.include_router(auth_router)
 router.include_router(user_router)

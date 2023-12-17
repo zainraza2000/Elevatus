@@ -8,6 +8,7 @@ from core._utils.auth_helper import verify_token
 
 candidate_router = APIRouter(tags=["Candidate"])
 
+#protected endpoints depend on verify_token helper
 @candidate_router.get("/all-candidates",response_model=List[Candidate])
 async def get_candidates_by_keyword(current_user: Annotated[User, Depends(verify_token)],keyword: str = Query(None, title="Search Keyword", description="Global search keyword")):
     return await CandidateService().get_candidates_by_keyword(keyword)

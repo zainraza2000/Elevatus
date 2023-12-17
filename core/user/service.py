@@ -8,6 +8,7 @@ class UserService:
         self.user_repository = user_repository
     
     async def create_user(self, user: User):
+        #if user with email already exists
         is_exist = await self.user_repository.find_one({"email": user.email})
         if is_exist:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="User with this email already exists")

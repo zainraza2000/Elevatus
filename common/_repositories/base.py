@@ -3,6 +3,7 @@ from typing import Optional, List, TypeVar, Generic
 
 T = TypeVar("T")
 
+# base repository consisting of generic methods related to repositories
 class BaseRepository(Generic[T]):
     __metaclass__ = ABCMeta
 

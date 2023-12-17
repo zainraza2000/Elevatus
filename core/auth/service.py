@@ -16,7 +16,8 @@ class AuthService:
         to_encode = data.copy()
         encoded_jwt = jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
         return encoded_jwt
-
+    
+    #simple api key auth
     async def get_token(self, payload: AuthRequest):
         try:
             user = User.model_validate(await self.user_repository.get_by_email(payload.email))

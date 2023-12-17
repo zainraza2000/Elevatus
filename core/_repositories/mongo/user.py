@@ -7,7 +7,7 @@ from pymongo import ReturnDocument
 from fastapi import HTTPException,status
 
 
-
+#implementing repository actions for mongo db
 class UserMongoRepository(UserRepository):
     def __init__(self) -> None:
         self.db = get_mongodb()

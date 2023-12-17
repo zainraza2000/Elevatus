@@ -3,7 +3,7 @@ from abc import ABCMeta,abstractmethod
 from core._models.user import User
 from typing import List
 
-
+#abstract class for implementing user specific repository actions
 class UserRepository(BaseRepository[User]):
     __metaclass__ = ABCMeta
 
