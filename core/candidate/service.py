@@ -5,6 +5,7 @@ from core.candidate.dtos.request import CandidateUpdate
 from datetime import datetime
 import pandas as pd
 import os
+from fastapi import HTTPException,status
 
 class CandidateService:
     @inject()
@@ -37,10 +38,12 @@ class CandidateService:
         file_name = f'report_{datetime.now().timestamp()}'
         candidates = await self.candidate_repository.get_all()
         list_of_candidates = [model.model_dump() for model in candidates]
+        if len(list_of_candidates) == 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="No candidates exist")
         df = pd.DataFrame(list_of_candidates)
         reports_folder = "reports"
         if not os.path.exists(reports_folder):
             os.makedirs(reports_folder)
         csv_file_path = os.path.join(reports_folder, f'{file_name}.csv')
         df.to_csv(csv_file_path, index=False)
-        return {f"Generated report in {csv_file_path}"}
+        return f"Generated report in {csv_file_path}"

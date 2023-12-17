@@ -13,3 +13,4 @@ payload = {
 def test_user():
     response = client.post('/user',json=payload)
     assert response.status_code == 200
+    assert response.json()["first_name"] == "Zain"
