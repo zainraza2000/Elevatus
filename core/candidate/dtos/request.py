@@ -20,6 +20,8 @@ class CandidateUpdate(BaseModel):
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         json_encoders={ObjectId: str},
+        use_enum_values=True,
+        extra='ignore',
         json_schema_extra={
             "example": {
                 "first_name": "test",
