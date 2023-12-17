@@ -33,9 +33,10 @@ class CandidateMongoRepository(CandidateRepository):
         return created_candidate
     
     async def update(self, id: int | str, item: CandidateUpdate) -> None:
+        updates = {k: v for k, v in item.model_dump(by_alias=True).items() if v is not None}
         return self.db.candidate.find_one_and_update(
             {"_id": ObjectId(id)},
-            {"$set": item.model_dump(by_alias=True, exclude=["uuid"])},
+            {"$set": updates},
             return_document=ReturnDocument.AFTER,
         )
     

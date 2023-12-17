@@ -32,9 +32,10 @@ class UserMongoRepository(UserRepository):
         return created_user
     
     async def update(self, id: int | str, item: User) -> None:
+        updates = {k: v for k, v in item.model_dump(by_alias=True).items() if v is not None}
         return await self.db.user.find_one_and_update(
             {"_id": ObjectId(id)},
-            {"$set": item},
+            {"$set": updates},
             return_document=ReturnDocument.AFTER,
         )
     
