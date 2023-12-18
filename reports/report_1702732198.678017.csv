@@ -1,3 +1,0 @@
-uuid,first_name,last_name,email,career_level,job_major,years_of_experience,degree_type,skills,nationality,city,salary,gender
-657c53829ef1845557c4faa3,Zain,Raza,user@example.com,string,string,10,string,"['string', 'test']",string,string,10000,Male
-657c613c4dc290a2d8e23e68,Kanani,string,user@example.com,string,string,0,string,['string'],string,string,0,Male
