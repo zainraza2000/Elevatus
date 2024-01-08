@@ -1,4 +1,4 @@
-Elevatus assignment
+fastAPI using repository pattern
 setup:
 docker-compose up
 
