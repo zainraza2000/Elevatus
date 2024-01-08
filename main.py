@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 #entrypoint
 
 app = FastAPI(
-    title="Elevatus Assignment",
+    title="Docs",
     summary="A sample application created for test assignment for Elevatus",
 )
 
